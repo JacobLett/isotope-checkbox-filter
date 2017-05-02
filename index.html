@@ -54,38 +54,38 @@
       <h5>Filters</h5>
 <p class="filters">
   
-   <label><input type="checkbox" value="1" /> 1 Professional VisSim</label>
-  <label><input type="checkbox" value="2" /> 2 Analyze</label>
+   <label><input type="checkbox" value="1" /> Professional VisSim</label>
+  <label><input type="checkbox" value="2" /> Analyze</label>
   
-    <label><input type="checkbox" value="3" /> 3 CAN (Controller Area Network)</label>
-    <label><input type="checkbox" value="4" /> 4 Motion</label>
-    <label><input type="checkbox" value="5" /> 5 OPC (OLE for Process COntrol)</label>
-    <label><input type="checkbox" value="6" /> 6 OptimizePRO</label>
-    <label><input type="checkbox" value="7" /> 7 RealTimePRO</label>
-    <label><input type="checkbox" value="8" /> 8 Serial</label>
-    <label><input type="checkbox" value="9" /> 9 StateCharts</label>
-   <label><input type="checkbox" value="10" /> 10 UDP (User Diagram Protocol)</label>
+    <label><input type="checkbox" value="3" /> CAN (Controller Area Network)</label>
+    <label><input type="checkbox" value="4" /> Motion</label>
+    <label><input type="checkbox" value="5" /> OPC (OLE for Process COntrol)</label>
+    <label><input type="checkbox" value="6" /> OptimizePRO</label>
+    <label><input type="checkbox" value="7" /> RealTimePRO</label>
+    <label><input type="checkbox" value="8" /> Serial</label>
+    <label><input type="checkbox" value="9" /> StateCharts</label>
+   <label><input type="checkbox" value="10" /> UDP (User Diagram Protocol)</label>
   
   
 <!-- # -->
-  <label><input type="checkbox" value="11" /> 11 VisSim Embedded</label>
-  <label><input type="checkbox" value="12" /> 12 Fixed Point</label>
-  <label><input type="checkbox" value="13" /> 13 C-Code Gen</label>
-  <label><input type="checkbox" value="14" /> 14 Code Gen All Targets</label>
+  <label><input type="checkbox" value="11" /> VisSim Embedded</label>
+  <label><input type="checkbox" value="12" /> Fixed Point</label>
+  <label><input type="checkbox" value="13" /> C-Code Gen</label>
+  <label><input type="checkbox" value="14" /> Code Gen All Targets</label>
   
   <!-- # -->
-  <label><input type="checkbox" value="15" /> 15 Comm</label>
+  <label><input type="checkbox" value="15" /> Comm</label>
   
   <!-- # -->
-  <label><input type="checkbox" value="16" /> 16 Digital Power Designer</label>
-  <label><input type="checkbox" value="17" /> 17 C-Code Library Source Code</label>
-  <label><input type="checkbox" value="18" /> 18 Target Support Library Source Code</label>
+  <label><input type="checkbox" value="16" /> Digital Power Designer</label>
+  <label><input type="checkbox" value="17" /> C-Code Library Source Code</label>
+  <label><input type="checkbox" value="18" /> Target Support Library Source Code</label>
   
   
 <!--  #  -->
-    <label><input type="checkbox" value="19" /> 19 VisSim PE (100 Block Limit)</label>
-  <label><input type="checkbox" value="20" /> 20 VisSim / Comm PE Suite</label>
-  <label><input type="checkbox" value="21" /> 21 VisSim / Embedded PE Suite</label>
+    <label><input type="checkbox" value="19" /> VisSim PE (100 Block Limit)</label>
+  <label><input type="checkbox" value="20" /> VisSim / Comm PE Suite</label>
+  <label><input type="checkbox" value="21" /> VisSim / Embedded PE Suite</label>
 
 </p>
       
@@ -96,12 +96,12 @@
     <!-- /.col-md-6 -->
     <div class="col-md-8">
     <div class="grid">
-  <div class="grid-item a">a. solidThinking Embed</div>
-  <div class="grid-item b">b. solidThinking Embed SE (Simulation Edition)</div>
-  <div class="grid-item c">c. Comm Module</div>
-  <div class="grid-item d">d. Digital Power Designer Module</div>
-  <div class="grid-item e">e. Embed C-Code Library Source Code Module</div>
-  <div class="grid-item f">f. Embed Support Library Source Code Module</div>
+  <div class="grid-item a">solidThinking Embed</div>
+  <div class="grid-item b">solidThinking Embed SE (Simulation Edition)</div>
+  <div class="grid-item c">Comm Module</div>
+  <div class="grid-item d">Digital Power Designer Module</div>
+  <div class="grid-item e">Embed C-Code Library Source Code Module</div>
+  <div class="grid-item f">Embed Support Library Source Code Module</div>
 
 </div>
     </div>
@@ -303,6 +303,23 @@ $checkboxes.change( function() {
               valueClasses.push(".a");
               valueClasses.push(".c");
             }
+    //----------------------------------------------        
+    }  
+
+
+
+
+    // If a and b exist remove b
+    //----------------------------
+    if (  containsAll([".b", ".a"], valueClasses)   ) {
+
+          // remove b if a exists
+          var index = valueClasses.indexOf(".b");
+          console.log("index " + index);
+          if (index > -1) {
+              valueClasses.splice(index, 1);
+          }
+
     //----------------------------------------------        
     }  
 
