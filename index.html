@@ -11,22 +11,29 @@
   
   
   
-  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
-
       <style>
-      .container {padding:2rem;}
-.filters label {display: block;}
+
+.row-4 {overflow: hidden;height: 240px;}
+.row-4 .col {width:19%;float:left;padding-right:1%;}
+@media screen and (max-width: 800px) {
+  .row-4 {height: auto;}
+  .row-4 .col {width:100%;float:none;}
+}
+
+
+
+.filters label {display: block; }
 
 .grid-item {
   font-weight: bold;
   width: 200px;
-  height: 200px;
+  height: 300px;
   padding: 1rem;
   margin: 10px;
-  text-align: center;
-  background: #ccc;
+  text-align: left;
   float: left;
 }
+.grid-item img {width:100%;height:auto;}
     </style>
 
   
@@ -35,28 +42,30 @@
   
 </head>
 
-<body translate="no" >
-
-  <div class="container">
-
-  
-  <div class="row">
-    <div class="col-md-3">
-      
-
-      
-      <div class="alert alert-info">Please select your existing VisSim product/module</div>
-
-        <p class="text-muted">Filters</p>
-      <div id="output"></div>
+<body>
 
 
-      <h5>Filters</h5>
-<p class="filters">
-  
-   <label><input type="checkbox" value="1" /> Professional VisSim</label>
-  <label><input type="checkbox" value="2" /> Analyze</label>
-  
+
+
+<!-- 
+<p class="text-muted">Filters</p>
+<div id="output"></div>
+ -->
+
+<h2>Please select your existing VisSim product/module</h2>
+<div class="row row-4 filters">
+  <div class="col">
+    
+    <label><input type="checkbox" value="1" /> Professional VisSim</label>
+      <label><input type="checkbox" value="11" /> VisSim Embedded</label>
+
+
+  </div>
+  <!-- /.col -->
+  <div class="col">
+    
+
+    <label><input type="checkbox" value="2" /> Analyze</label>
     <label><input type="checkbox" value="3" /> CAN (Controller Area Network)</label>
     <label><input type="checkbox" value="4" /> Motion</label>
     <label><input type="checkbox" value="5" /> OPC (OLE for Process COntrol)</label>
@@ -64,58 +73,102 @@
     <label><input type="checkbox" value="7" /> RealTimePRO</label>
     <label><input type="checkbox" value="8" /> Serial</label>
     <label><input type="checkbox" value="9" /> StateCharts</label>
-   <label><input type="checkbox" value="10" /> UDP (User Diagram Protocol)</label>
-  
-  
-<!-- # -->
-  <label><input type="checkbox" value="11" /> VisSim Embedded</label>
+    <label><input type="checkbox" value="10" /> UDP (User Diagram Protocol)</label>
+
+  </div>
+  <!-- /.col -->
+  <div class="col">
+    
   <label><input type="checkbox" value="12" /> Fixed Point</label>
-  <label><input type="checkbox" value="13" /> C-Code Gen</label>
-  <label><input type="checkbox" value="14" /> Code Gen All Targets</label>
-  
-  <!-- # -->
+    <label><input type="checkbox" value="13" /> C-Code Gen</label>
+
+    <label><input type="checkbox" value="14" /> Code Gen All Targets</label>
+
+  </div>
+  <!-- /.col -->
+  <div class="col">
+    
+      <!-- # -->
   <label><input type="checkbox" value="15" /> Comm</label>
-  
   <!-- # -->
   <label><input type="checkbox" value="16" /> Digital Power Designer</label>
   <label><input type="checkbox" value="17" /> C-Code Library Source Code</label>
   <label><input type="checkbox" value="18" /> Target Support Library Source Code</label>
-  
-  
-<!--  #  -->
-    <label><input type="checkbox" value="19" /> VisSim PE (100 Block Limit)</label>
+
+  </div>
+  <!-- /.col -->
+  <div class="col">
+    
+  <label><input type="checkbox" value="19" /> VisSim PE (100 Block Limit)</label>
   <label><input type="checkbox" value="20" /> VisSim / Comm PE Suite</label>
   <label><input type="checkbox" value="21" /> VisSim / Embedded PE Suite</label>
 
-</p>
-      
-
-      
-      
-    </div>
-    <!-- /.col-md-6 -->
-    <div class="col-md-8">
-    <div class="grid">
-  <div class="grid-item a">solidThinking Embed</div>
-  <div class="grid-item b">solidThinking Embed SE (Simulation Edition)</div>
-  <div class="grid-item c">Comm Module</div>
-  <div class="grid-item d">Digital Power Designer Module</div>
-  <div class="grid-item e">Embed C-Code Library Source Code Module</div>
-  <div class="grid-item f">Embed Support Library Source Code Module</div>
-
-</div>
-    </div>
-    <!-- /.col-md-6 -->
   </div>
-  <!-- /.row -->
-
-  
-  
-  
-
-  
-  
+  <!-- /.col -->
 </div>
+<!-- /.row -->
+
+  
+
+      
+
+
+
+      
+      
+
+
+
+
+<div class="grid">
+  <div class="grid-item a">
+    <img src="http://resources.altair.com/solidthinking.com/images/Gallery_Image_0001_midsurface2.png" />
+  <h3>solidThinking Embed</h3>
+  <p>Lorem ipsum</p>
+  <a href="">Learn More</a>
+  </div>
+  <div class="grid-item b">
+    <img src="http://resources.altair.com/solidthinking.com/images/Gallery_Image_0001_midsurface2.png" />
+  <h3>solidThinking Embed SE (Simulation Edition)</h3>
+    <p>Lorem ipsum</p>
+  <a href="">Learn More</a>
+  </div>
+  <div class="grid-item c">
+    <img src="http://resources.altair.com/solidthinking.com/images/Gallery_Image_0001_midsurface2.png" />
+  <h3>Comm Module</h3>
+    <p>Lorem ipsum</p>
+  <a href="">Learn More</a>
+  </div>
+  <div class="grid-item d">
+    <img src="http://resources.altair.com/solidthinking.com/images/Gallery_Image_0001_midsurface2.png" />
+  <h3>Digital Power Designer Module</h3>
+    <p>Lorem ipsum</p>
+  <a href="">Learn More</a>
+  </div>
+  <div class="grid-item e">
+  <img src="http://resources.altair.com/solidthinking.com/images/Gallery_Image_0001_midsurface2.png" />
+
+ <h3>Embed C-Code Library Source Code Module</h3>
+   <p>Lorem ipsum</p>
+  <a href="">Learn More</a>
+  </div>
+  <div class="grid-item f">
+  <img src="http://resources.altair.com/solidthinking.com/images/Gallery_Image_0001_midsurface2.png" />
+  <h3>Embed Support Library Source Code Module</h3>
+    <p>Lorem ipsum</p>
+  <a href="">Learn More</a>
+  </div>
+</div>
+
+
+
+  
+  
+  
+
+  
+  
+
   
 <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
@@ -218,7 +271,7 @@ $checkboxes.change( function() {
 
     // Change b and c
     //----------------------------
-    if (  containsAll(["1", "15"], inclusives)   ) {
+    if (  containsAll(["1", "15"], inclusives)  || $.inArray("15", inclusives) != -1  || $.inArray("20", inclusives) != -1   ) {
 
           // clear valueClasses
           valueClasses = []
@@ -234,9 +287,16 @@ $checkboxes.change( function() {
     }  
 
 
+
+
+
+
+
+
+
     // Change a and d
     //----------------------------
-    if (  containsAll(["1", "16"], inclusives)   ) {
+    if (  containsAll(["1", "16"], inclusives) || $.inArray("16", inclusives) != -1    ) {
 
           // clear valueClasses
           valueClasses = []
@@ -254,7 +314,7 @@ $checkboxes.change( function() {
 
         // Change a and e
     //----------------------------
-    if (  containsAll(["1", "17"], inclusives)   ) {
+    if (  containsAll(["1", "17"], inclusives) || $.inArray("17", inclusives) != -1   ) {
 
           // clear valueClasses
           valueClasses = []
@@ -273,7 +333,7 @@ $checkboxes.change( function() {
 
     // Change a and f
     //----------------------------
-    if (  containsAll(["1", "18"], inclusives)   ) {
+    if (  containsAll(["1", "18"], inclusives) || $.inArray("18", inclusives) != -1   ) {
 
           // clear valueClasses
           valueClasses = []
