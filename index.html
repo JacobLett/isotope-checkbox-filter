@@ -43,45 +43,49 @@
   <div class="row">
     <div class="col-md-3">
       
-            <strong>Filter test</strong>
-      <div id="output"></div>
+
       
       <div class="alert alert-info">Please select your existing VisSim product/module</div>
-      <p class="text-muted">Filters</p>
+
+        <p class="text-muted">Filters</p>
+      <div id="output"></div>
+
+
+      <h5>Filters</h5>
 <p class="filters">
   
-   <label><input type="checkbox" value=".b, .c1" /> 1 Professional VisSim</label>
-  <label><input type="checkbox" value=".b, .c2" /> 2 Analyze</label>
+   <label><input type="checkbox" value="1" /> 1 Professional VisSim</label>
+  <label><input type="checkbox" value="2" /> 2 Analyze</label>
   
-    <label><input type="checkbox" value=".b, .c3" /> 3 CAN (Controller Area Network)</label>
-    <label><input type="checkbox" value=".b, .c4" /> 4 Motion</label>
-    <label><input type="checkbox" value=".b, .c5" /> 5 OPC (OLE for Process COntrol)</label>
-    <label><input type="checkbox" value=".b, .c6" /> 6 OptimizePRO</label>
-    <label><input type="checkbox" value=".b, .c7" /> 7 RealTimePRO</label>
-    <label><input type="checkbox" value=".b, .c8" /> 8 Serial</label>
-    <label><input type="checkbox" value=".b, .c9" /> 9 StateCharts</label>
-   <label><input type="checkbox" value=".b, .c10" /> 10 UDP (User Diagram Protocol)</label>
+    <label><input type="checkbox" value="3" /> 3 CAN (Controller Area Network)</label>
+    <label><input type="checkbox" value="4" /> 4 Motion</label>
+    <label><input type="checkbox" value="5" /> 5 OPC (OLE for Process COntrol)</label>
+    <label><input type="checkbox" value="6" /> 6 OptimizePRO</label>
+    <label><input type="checkbox" value="7" /> 7 RealTimePRO</label>
+    <label><input type="checkbox" value="8" /> 8 Serial</label>
+    <label><input type="checkbox" value="9" /> 9 StateCharts</label>
+   <label><input type="checkbox" value="10" /> 10 UDP (User Diagram Protocol)</label>
   
   
 <!-- # -->
-  <label><input type="checkbox" value=".a, .c11" /> 11 VisSim Embedded</label>
-  <label><input type="checkbox" value=".a, .c12" /> 12 Fixed Point</label>
-  <label><input type="checkbox" value=".a, .c13" /> 13 C-Code Gen</label>
-  <label><input type="checkbox" value=".a, .c14" /> 14 Code Gen All Targets</label>
+  <label><input type="checkbox" value="11" /> 11 VisSim Embedded</label>
+  <label><input type="checkbox" value="12" /> 12 Fixed Point</label>
+  <label><input type="checkbox" value="13" /> 13 C-Code Gen</label>
+  <label><input type="checkbox" value="14" /> 14 Code Gen All Targets</label>
   
   <!-- # -->
-  <label><input type="checkbox" value=".b, .c, .c15" /> 15 Comm</label>
+  <label><input type="checkbox" value="15" /> 15 Comm</label>
   
   <!-- # -->
-  <label><input type="checkbox" value=".a, .d, .c16" /> 16 Digital Power Designer</label>
-  <label><input type="checkbox" value=".a, .e, .c17" /> 17 C-Code Library Source Code</label>
-  <label><input type="checkbox" value=".a, .f, .c18" /> 18 Target Support Library Source Code</label>
+  <label><input type="checkbox" value="16" /> 16 Digital Power Designer</label>
+  <label><input type="checkbox" value="17" /> 17 C-Code Library Source Code</label>
+  <label><input type="checkbox" value="18" /> 18 Target Support Library Source Code</label>
   
   
 <!--  #  -->
-    <label><input type="checkbox" value=".b, .c19" /> 19 VisSim PE (100 Block Limit)</label>
-  <label><input type="checkbox" value=".b, .c20" /> 20 VisSim / Comm PE Suite</label>
-  <label><input type="checkbox" value=".a, .c21" /> 21 VisSim / Embedded PE Suite</label>
+    <label><input type="checkbox" value="19" /> 19 VisSim PE (100 Block Limit)</label>
+  <label><input type="checkbox" value="20" /> 20 VisSim / Comm PE Suite</label>
+  <label><input type="checkbox" value="21" /> 21 VisSim / Embedded PE Suite</label>
 
 </p>
       
@@ -118,7 +122,7 @@
 <script src='https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js'></script>
 
     <script>
-    $(document).ready(function() {
+$(document).ready(function() {
  // executes when HTML-Document is loaded and DOM is ready
 console.log("document is ready");
   
@@ -139,6 +143,7 @@ var $checkboxes = $('.filters input');
 $checkboxes.change( function() {
   // map input values to an array
   var inclusives = [];
+  var valueClasses = [];
   // inclusive filters from checkboxes
   $checkboxes.each( function( i, elem ) {
     // if checkbox, use value if checked
@@ -146,32 +151,180 @@ $checkboxes.change( function() {
        inclusives.push( elem.value );
     }
     
-    
 
-  
+
 
     
-     if ( $.inArray(".c11", inclusives) !== -1 ) {
-      
-      alert('test');
-      var removeItem = ".b";
-      inclusives.splice( $.inArray(removeItem,inclusives) , 1 );
-      console.log(inclusives);
-    }    
- 
+    function containsAll(needles, haystack){ 
+    for(var i = 0 , len = needles.length; i < len; i++){
+     if($.inArray(needles[i], haystack) == -1) return false;
+      }
+      return true;
+    }
+
+
+
+    // Show a
+    //---------------------------
+    if ( $.inArray("11", inclusives) != -1 || $.inArray("12", inclusives) != -1 || $.inArray("13", inclusives) != -1 || $.inArray("14", inclusives) != -1 || $.inArray("21", inclusives) != -1 || $.inArray("16", inclusives) != -1 || $.inArray("17", inclusives) != -1 || $.inArray("18", inclusives) != -1   ) {
+          // has b already
+           if ( containsAll([".a"], valueClasses)  ) {
+              
+            }  else {
+              // add b
+              valueClasses.push(".a");
+            }
+    //----------------------------------------------        
+    }  
+
+
+
+
+    // Show b
+    //---------------------------
+    if ( $.inArray("1", inclusives) != -1 || $.inArray("2", inclusives) != -1 || $.inArray("3", inclusives) != -1 || $.inArray("4", inclusives) != -1 || $.inArray("5", inclusives) != -1 || $.inArray("6", inclusives) != -1 || $.inArray("7", inclusives) != -1 || $.inArray("8", inclusives) != -1    || $.inArray("9", inclusives) != -1 || $.inArray("10", inclusives) != -1  || $.inArray("19", inclusives) != -1 || $.inArray("20", inclusives) != -1 ) {
+          // has b already
+           if ( containsAll([".b"], valueClasses)  ) {
+              
+            }  else {
+              // add b
+              valueClasses.push(".b");
+            }
+    //----------------------------------------------        
+    }  
+
+
+
+
+
+
+
+    // Change b to a
+    //----------------------------
+    if (  containsAll(["1", "11"], inclusives) || containsAll(["1", "12"], inclusives) || containsAll(["1", "13"], inclusives)  || containsAll(["1", "14"], inclusives)  || containsAll(["1", "16"], inclusives)   || containsAll(["1", "17"], inclusives)   || containsAll(["1", "18"], inclusives)    ) {
+
+          // clear valueClasses
+          valueClasses = []
+          // has a already
+           if ( containsAll([".a"], valueClasses)  ) {
+              
+            }  else {
+              // add a 
+              valueClasses.push(".a");
+            }
+    //----------------------------------------------        
+    }  
+
+
+    // Change b and c
+    //----------------------------
+    if (  containsAll(["1", "15"], inclusives)   ) {
+
+          // clear valueClasses
+          valueClasses = []
+          // has a already
+           if ( containsAll([".b"], valueClasses)  ) {
+              
+            }  else {
+              // add b
+              valueClasses.push(".b");
+              valueClasses.push(".c");
+            }
+    //----------------------------------------------        
+    }  
+
+
+    // Change a and d
+    //----------------------------
+    if (  containsAll(["1", "16"], inclusives)   ) {
+
+          // clear valueClasses
+          valueClasses = []
+          // has a already
+           if ( containsAll([".a"], valueClasses)  ) {
+              
+            }  else {
+              // add b
+              valueClasses.push(".a");
+              valueClasses.push(".d");
+            }
+    //----------------------------------------------        
+    }  
+
+
+        // Change a and e
+    //----------------------------
+    if (  containsAll(["1", "17"], inclusives)   ) {
+
+          // clear valueClasses
+          valueClasses = []
+          // has a already
+           if ( containsAll([".a"], valueClasses)  ) {
+              
+            }  else {
+              // add a e
+              valueClasses.push(".a");
+              valueClasses.push(".e");
+            }
+    //----------------------------------------------        
+    }  
+
+
+
+    // Change a and f
+    //----------------------------
+    if (  containsAll(["1", "18"], inclusives)   ) {
+
+          // clear valueClasses
+          valueClasses = []
+          // has a already
+           if ( containsAll([".a"], valueClasses)  ) {
+              
+            }  else {
+              // add a f
+              valueClasses.push(".a");
+              valueClasses.push(".f");
+            }
+    //----------------------------------------------        
+    }  
+
+
+    // Change a and c
+    //----------------------------
+    if (  containsAll(["1", "11", "15"], inclusives)   ) {
+
+          // clear valueClasses
+          valueClasses = []
+          // has a already
+           if ( containsAll([".a"], valueClasses)  ) {
+              
+            }  else {
+              // add a f
+              valueClasses.push(".a");
+              valueClasses.push(".c");
+            }
+    //----------------------------------------------        
+    }  
+
+
+
+
+
+
+console.log(valueClasses);
+
     
     
     
-    
+// -------------------------------
 });
   
   
 
-console.log(inclusives);
   // combine inclusive filters
-  var filterValue = inclusives.length ? inclusives.join(', ') : '*';
+  var filterValue = valueClasses.length ? valueClasses.join(', ') : '*';
   
-  console.log('filter value' + filterValue);
+  //console.log('filter value' + filterValue);
   $output.text( filterValue );
   $container.isotope({ filter: filterValue })
 });
@@ -185,18 +338,14 @@ console.log(inclusives);
 
   
   
-  
+// --------------------------------
 // document ready  
 });
 
 
-$(window).load(function() {
- // executes when complete page is fully loaded, including all frames, objects and images
-console.log("window is loaded");
-  
-  
-// window load  
-});
+
+
+
   </script>
 
   
